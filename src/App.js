@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink, BrowserRouter } from 'react-router-dom';
+import MyTeams from './pages/MyTeams' ;
+import NFL from './pages/NFL' ;
+import NBA from './pages/NBA' ;
+import MLB from './pages/MLB' ;
+import NHL from './pages/NHL' ;
+import './App.css' ;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // ask what Router and BrowserRouter is doing
+    <Router>
+      <div className="App">
+        <h1 className="app-title">MySportsTeams</h1>
+        <nav className="tab-bar">
+          {/* ask what isActive is doing for these */}
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'tab active' : 'tab'}>⭐ My Teams  </NavLink>
+          <NavLink to="/nfl" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏈 NFL  </NavLink>
+          <NavLink to="/nba" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏀 NBA  </NavLink>
+          <NavLink to="/mlb" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>⚾ MLB  </NavLink>
+          <NavLink to="/nhl" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏒 NHL  </NavLink>
+        </nav>
+        <div className="page-content">
+          {/* ask what Routes is doing */}
+          <Routes>
+            <Route path="/" element={<MyTeams />} />
+            <Route path="/nfl" element={<NFL />} />
+            <Route path="/nba" element={<NBA />} />
+            <Route path="/mlb" element={<MLB />} />
+            <Route path="/nhl" element={<NHL />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
