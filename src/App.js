@@ -9,20 +9,18 @@ import './App.css' ;
 
 function App() {
   return (
-    // ask what Router and BrowserRouter is doing
+    // ask what Router
     <Router>
       <div className="App">
-        <h1 className="app-title">MySportsTeams</h1>
+        <h1 className="app-title">My<span>Sports</span>Teams</h1>
         <nav className="tab-bar">
-          {/* ask what isActive is doing for these */}
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'tab active' : 'tab'}>⭐ My Teams  </NavLink>
-          <NavLink to="/nfl" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏈 NFL  </NavLink>
-          <NavLink to="/nba" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏀 NBA  </NavLink>
-          <NavLink to="/mlb" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>⚾ MLB  </NavLink>
-          <NavLink to="/nhl" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏒 NHL  </NavLink>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'tab active' : 'tab'}>⭐ My Teams </NavLink>
+          <NavLink to="/nfl" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏈 NFL </NavLink>
+          <NavLink to="/nba" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏀 NBA </NavLink>
+          <NavLink to="/mlb" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>⚾ MLB </NavLink>
+          <NavLink to="/nhl" className={({ isActive }) => isActive ? 'tab active' : 'tab'}>🏒 NHL </NavLink>
         </nav>
         <div className="page-content">
-          {/* ask what Routes is doing */}
           <Routes>
             <Route path="/" element={<MyTeams />} />
             <Route path="/nfl" element={<NFL />} />
