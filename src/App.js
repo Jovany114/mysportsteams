@@ -9,7 +9,6 @@ import './App.css' ;
 
 function App() {
   return (
-    // ask what Router
     <Router>
       <div className="App">
         <h1 className="app-title">My<span>Sports</span>Teams</h1>
