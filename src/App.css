@@ -28,7 +28,6 @@ body {
 }
 
 .app-title span{
-  /* color: #f4a323; */
   color: aqua;
 }
 
@@ -58,7 +57,6 @@ body {
 .tab.active {
   background: #1a1f2e;
   color: white;
-  /* border-top: 2px solid #f4a323; */
   border-top: 2px solid aqua;
 }
 
@@ -66,4 +64,57 @@ body {
   background: #1a1f2e;
   min-height: calc(100vh - 120px);
   padding: 24px;
+}
+
+
+/* css for the individual league browsers */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.team-card {
+  background: #232839;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #2a3045;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.team-card:hover {
+  border-color: aqua;
+}
+
+.team-logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.team-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+
+.team-abbreviation {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #2a3045;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f4a323;
 }
