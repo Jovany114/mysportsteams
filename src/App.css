@@ -86,6 +86,7 @@ body {
   border: 1px solid #2a3045;
   cursor: pointer;
   transition: border-color 0.2s;
+  height: 135px;
 }
 
 .team-card:hover {
@@ -116,5 +117,5 @@ body {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #f4a323;
+  color: aqua;
 }
