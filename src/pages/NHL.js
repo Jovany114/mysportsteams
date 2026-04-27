@@ -1,36 +1,14 @@
-import React from 'react';
+import React from "react";
 import { TEAMS } from '../data/teams';
-import { useTeams } from '../context/TeamsContext';
+import TeamCard from "../components/TeamCard";
 
 function NHL() {
-  const { followTeam, unfollowTeam, isFollowed } = useTeams();
-
-  const handleFollow = (team) => {
-    if (isFollowed(team.name)) {
-      unfollowTeam(team.name);
-    } else {
-      followTeam({ ...team, league: 'NHL'});
-    }
-  };
-
   return (
     <div>
       <h2>🏈 NHL Teams</h2>
       <div className="teams-grid">
         {TEAMS.NHL.map((team) => (
-          <div 
-            key={team.name} 
-            className={`team-card ${isFollowed(team.name) ? 'followed' : ''}`}
-          >
-            <div className="team-abbreviation">{team.abbreviation}</div>
-            <p className="team-name">{team.name}</p>
-            <button
-              className="follow-btn"
-              onClick={() => handleFollow(team)}
-            >
-              {isFollowed(team.name) ? '✓' : '+'}
-            </button>
-          </div>
+          <TeamCard key={team.name} team={team} league="NHL" />
         ))}
       </div>
     </div>

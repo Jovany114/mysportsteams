@@ -1,8 +1,9 @@
 import React from 'react' ;
 import { useTeams } from '../context/TeamsContext';
+import TeamCard from '../components/TeamCard';
 
 function MyTeams() {
-    const { followedTeams, unfollowTeam } = useTeams();
+    const { followedTeams } = useTeams();
 
     if (followedTeams.length === 0){
         return (
@@ -11,28 +12,19 @@ function MyTeams() {
                 <p>Head to a league tab to follow your teams!</p>
             </div>
         );
-    } else {
-        return(
-            <div>
-                <h2>⭐ My Teams</h2>
-                <div className="teams-grid">
-                    {followedTeams.map((team) => (
-                        <div key={team.name} className="team-card followed">
-                            <div className="team-abbreviation">{team.abbreviation}</div>
-                            <p className="team-name">{team.name}</p>
-                            <p className="team-league">{team.league}</p>
-                            <button
-                                className="follow-btn"
-                                onClick={() => unfollowTeam(team.name)}
-                            >
-                                ✓
-                            </button>
-                        </div>
-                    ))}
-                </div>
+    } 
+
+    return(
+        <div>
+            <h2>⭐ My Teams</h2>
+            <div className="teams-grid">
+                {followedTeams.map((team) => (
+                    <TeamCard key={team.name} team={team} league={team.league} />
+                ))}
             </div>
-        );
-    }
+        </div>
+    );
+    
 }
 
 export default MyTeams;

@@ -163,3 +163,9 @@ follow-btn:hover {
   gap: 8px;
   color: #8892a4;
 }
+
+.team-logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
