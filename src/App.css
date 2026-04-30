@@ -88,7 +88,7 @@ body {
   border: 1px solid #2a3045;
   cursor: pointer;
   transition: border-color 0.2s;
-  height: 181px;
+  height: 193px;
 }
 
 .team-card:hover {
