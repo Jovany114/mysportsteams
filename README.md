@@ -71,5 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-
-Using TheSportsDB free sports API
+previously used API TheSportsDB has altered what is accesible with the free tier, due to this i am now
+using api-sports.io for my API
