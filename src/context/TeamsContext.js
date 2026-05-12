@@ -1,24 +1,54 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getTeamsByLeague } from '../services/api';
 
 const TeamsContext = createContext();
 
 export function TeamsProvider({ children }) {
     const [followedTeams, setFollowedTeams] = useState([]);
+    const [allTeams, setAllTeams] = useState({
+        NFL: [],
+        NBA: [],
+        MLB: [],
+        NHL: [],
+    });
+    const [teamsLoading, setTeamsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchAllTeams = async () => {
+            setTeamsLoading(true);
+            const [NFL, NBA, MLB, NHL] = await Promise.all([
+                getTeamsByLeague('NFL'),
+                getTeamsByLeague('NBA'),
+                getTeamsByLeague('MLB'),
+                getTeamsByLeague('NHL'),
+            ]);
+            setAllTeams({ NFL, NBA, MLB, NHL });
+            setTeamsLoading(false);
+        };
+        fetchAllTeams();
+    }, []);
     
     const followTeam = (team) => {
         setFollowedTeams((prev) => [...prev, team]);
     };
 
-    const unfollowTeam = (teamName) => {
-        setFollowedTeams((prev) => prev.filter((t) => t.name !== teamName));
+    const unfollowTeam = (teamId) => {
+        setFollowedTeams((prev) => prev.filter((t) => t.id !== teamId));
     };
 
-    const isFollowed = (teamName) => {
-        return followedTeams.some((t) => t.name ===teamName);
+    const isFollowed = (teamId) => {
+        return followedTeams.some((t) => t.id === teamId);
     };
 
     return (
-        <TeamsContext.Provider value={{ followedTeams, followTeam, unfollowTeam, isFollowed }}>
+        <TeamsContext.Provider value={{
+            followedTeams,
+            allTeams,
+            teamsLoading,
+            followTeam,
+            unfollowTeam,
+            isFollowed,
+        }}>
             {children}
         </TeamsContext.Provider>
     );
