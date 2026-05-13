@@ -38,7 +38,7 @@ export const getTeamsByLeague = async (league) => {
         //api-sports.io also includes conferences in this return, so filtering those out here
         return teams.filter((team) => team.country !== null && team.country?.name !== undefined && team.id !== undefined);
     } catch (error) {
-        cosnole.error(`Error fetching ${league} teams:`, error);
+        console.error(`Error fetching ${league} teams:`, error);
         return[];
     }
 };

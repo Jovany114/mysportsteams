@@ -1,14 +1,18 @@
 import React from "react";
-import { TEAMS } from '../data/teams';
+import { useTeams } from '../context/TeamsContext';
 import TeamCard from "../components/TeamCard";
 
 function NHL() {
+  const { allTeams, teamsLoading } = useTeams();
+
+  if (teamsLoading) return <p className="events-loading">Loading NHL teams...</p>;
+
   return (
     <div>
-      <h2>🏈 NHL Teams</h2>
+      <h2>🏒 NHL Teams</h2>
       <div className="teams-grid">
-        {TEAMS.NHL.map((team) => (
-          <TeamCard key={team.name} team={team} league="NHL" />
+        {allTeams.NHL.map((team) => (
+          <TeamCard key={team.id} team={team} league="NHL" />
         ))}
       </div>
     </div>

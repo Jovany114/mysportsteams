@@ -19,7 +19,7 @@ function MyTeams() {
             <h2>⭐ My Teams</h2>
             <div className="teams-grid">
                 {followedTeams.map((team) => (
-                    <TeamCard key={team.name} team={team} league={team.league} />
+                    <TeamCard key={team.id} team={team} league={team.league} />
                 ))}
             </div>
         </div>

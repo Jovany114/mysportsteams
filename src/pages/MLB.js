@@ -1,14 +1,18 @@
 import React from "react";
-import { TEAMS } from '../data/teams';
+import { useTeams } from '../context/TeamsContext';
 import TeamCard from "../components/TeamCard";
 
 function MLB() {
+  const { allTeams, teamsLoading } = useTeams();
+
+  if (teamsLoading) return <p className="events-loading">Loading MLB teams...</p>;
+
   return (
     <div>
-      <h2>🏈 MLB Teams</h2>
+      <h2>⚾ MLB Teams</h2>
       <div className="teams-grid">
-        {TEAMS.MLB.map((team) => (
-          <TeamCard key={team.name} team={team} league="MLB" />
+        {allTeams.MLB.map((team) => (
+          <TeamCard key={team.id} team={team} league="MLB" />
         ))}
       </div>
     </div>

@@ -108,20 +108,6 @@ body {
   color: white;
 }
 
-.team-abbreviation {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #2a3045;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: aqua;
-}
-
 .team-card.followed {
   border-color: aqua;
 }
@@ -168,4 +154,24 @@ follow-btn:hover {
   width: 80px;
   height: 80px;
   object-fit: contain;
+}
+
+.games-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+  padding-right: 4px;
+}
+
+.games-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.games-scroll::-webkit-scrollbar-track {
+  background: #1a1f2e;
+}
+
+.games-scroll::-webkit-scrollbar-thumb {
+  background: aqua;
+  border-radius: 2px;
 }
